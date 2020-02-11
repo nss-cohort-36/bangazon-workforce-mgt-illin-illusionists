@@ -11,7 +11,8 @@ class Computer(models.Model):
       employees: This property contains the many to many relationship with the computer/employee model
     '''
 
-    make = models.CharField(max_length=20)
+    manufacturer = models.CharField(max_length=25)
+    model = models.CharField(max_length=25)
     purchase_date = models.DateField()
     decommission_date = models.DateField(null=True, blank=True, default=None)
     employees = models.ManyToManyField("Employee", through='EmployeeComputer')
