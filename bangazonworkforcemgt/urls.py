@@ -21,3 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('hrapp.urls'))
 ]
+
+
+admin.site.site_header = "Bangazon Admin"
+admin.site.site_title = "Bangazon Admin Portal"
+admin.site.index_title = "Welcome to Bangazon by the illin-illusionists!"
