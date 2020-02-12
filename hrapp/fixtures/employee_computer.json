@@ -1,0 +1,34 @@
+[
+    {
+        "model": "hrapp.employeecomputer",
+        "pk": 1,
+        "fields": {
+            "employee": 1,
+            "computer": 1
+        }
+      },
+    {
+        "model": "hrapp.employeecomputer",
+        "pk": 1,
+        "fields": {
+            "employee": 2,
+            "computer": 1
+        }
+      },
+    {
+        "model": "hrapp.employeecomputer",
+        "pk": 1,
+        "fields": {
+            "employee": 3,
+            "computer": 1
+        }
+      },
+    {
+        "model": "hrapp.employeecomputer",
+        "pk": 1,
+        "fields": {
+            "employee": 4,
+            "computer": 1
+        }
+      },
+]

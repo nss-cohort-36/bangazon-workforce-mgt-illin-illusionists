@@ -1,0 +1,42 @@
+[
+    {
+        "model": "hrapp.employee",
+        "pk": 1,
+        "fields": {
+            "first_name": "Tom",
+            "last_name": "Riddle",
+            "start_date": "1977-10-31",
+            "is_supervisor": false
+        }
+      },
+    {
+        "model": "hrapp.employee",
+        "pk": 2,
+        "fields": {
+            "first_name": "Bill",
+            "last_name": "Withers",
+            "start_date": "1987-04-20",
+            "is_supervisor": false
+        }
+      },
+    {
+        "model": "hrapp.employee",
+        "pk": 3,
+        "fields": {
+            "first_name": "Mother",
+            "last_name": "Teresa",
+            "start_date": "1957-01-01",
+            "is_supervisor": true
+        }
+      },
+    {
+        "model": "hrapp.employee",
+        "pk": 4,
+        "fields": {
+            "first_name": "Mahatma",
+            "last_name": "Ghandi",
+            "start_date": "1962-06-01",
+            "is_supervisor": true
+        }
+      }
+]
