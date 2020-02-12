@@ -12,5 +12,6 @@ urlpatterns = [
     path('departments/', employee_list, name='employee_list'),
     path('trainingprograms/', employee_list, name='employee_list'),
     path('computers/', computer_list, name='computer_list'),
+    path('computers/<int:computer_id>', computer_details, name="computer")
 
 ]
