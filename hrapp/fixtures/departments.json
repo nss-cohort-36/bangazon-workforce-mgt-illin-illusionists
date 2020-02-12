@@ -1,0 +1,27 @@
+[
+    {
+      "model": "hrapp.department",
+      "pk": 1,
+      "fields": {
+        "dept_name": "Human Resources",
+        "budget": 10000
+      }
+    },
+    {
+      "model": "hrapp.department",
+      "pk": 2,
+      "fields": {
+        "dept_name": "Finance",
+        "budget": 20000
+      }
+    },
+    {
+      "model": "hrapp.department",
+      "pk": 3,
+      "fields": {
+        "dept_name": "Research and Development",
+        "budget": 30000
+      }
+    }
+  ]
+  
