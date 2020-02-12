@@ -1,0 +1,12 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Computer: {{ computer.manufacturer }} {{ computer.model }}</h1>
+    <p>Purchased: {{ computer.purchase_date }}</p>
+    
+    {% if computer.decommission_date %}
+        <p>Decommission Date: {{ computer.decommission_date }}</p>
+    {% endif %}
+
+{% endblock %}
