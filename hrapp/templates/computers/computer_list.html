@@ -1,0 +1,24 @@
+{% extends 'shared/base.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <charset = 'utf-8'>
+        <title>HR App</title>
+    </head>
+    <body>
+    {% block content %}
+        <h1>Computers</h1>
+        <ul>
+        {% for computer in all_computers %}
+
+            <li>{{computer.manufacturer}} {{computer.model}}</li>
+
+
+
+        {% endfor %}
+        </ul>
+    {% endblock %}
+    </body>
+</html>
