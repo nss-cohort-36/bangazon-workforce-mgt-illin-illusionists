@@ -13,6 +13,18 @@
 </head>
 
 <body>
+    <nav id="site-nav">
+        <ol class="navList">
+            <li class="navList__route"><a href="{% url 'hrapp:home' %}">Home</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:employee_list' %}">Employees</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:employee_list' %}">Departments</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:employee_list' %}">Training Programs</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:employee_list' %}">Computers</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:logout' %}">Logout</a></li>
+
+
+        </ol>
+    </nav>
 
     {% block content %}
     {% endblock %}
