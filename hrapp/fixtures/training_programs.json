@@ -1,0 +1,32 @@
+[
+    {
+        "model": "hrapp.TrainingProgram",
+        "pk": 1,
+        "fields": {
+            "title": "Sexual Harassment in the Workplace and How to Address It",
+            "start_date": "2020-02-10",
+            "end_date": "2020-02-14",
+            "capacity": 50
+        }
+      },
+    {
+        "model": "hrapp.TrainingProgram",
+        "pk": 2,
+        "fields": {
+            "title": "How to Format a Professional Email",
+            "start_date": "2020-02-10",
+            "end_date": "2020-02-14",
+            "capacity": 100
+        }
+      },
+    {
+        "model": "hrapp.TrainingProgram",
+        "pk": 3,
+        "fields": {
+            "title": "Dress Code: 10 Do's and Don'ts on What to Wear in the Workplace",
+            "start_date": "2020-02-20",
+            "end_date": "2020-02-25",
+            "capacity": 5000
+        }
+      }
+]
