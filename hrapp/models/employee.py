@@ -1,5 +1,5 @@
 from django.db import models
-# from .department import Department
+from .department import Department
 
 class Employee(models.Model):
 
@@ -8,7 +8,7 @@ class Employee(models.Model):
     start_date = models.DateField()
     department = models.ForeignKey("Department", on_delete=models.CASCADE)
     is_supervisor = models.BooleanField()
-    # department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = ("Employee")
