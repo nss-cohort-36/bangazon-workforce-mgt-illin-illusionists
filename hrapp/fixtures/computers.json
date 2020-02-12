@@ -38,5 +38,35 @@
       "purchase_date": "2014-10-20",
       "decommission_date": null
     }
+  },
+  {
+    "model": "hrapp.computer",
+    "pk": 5,
+    "fields": {
+      "manufacturer": "Lenovo",
+      "model": "X1 Carbon",
+      "purchase_date": "2019-10-20",
+      "decommission_date": null
+    }
+  },
+  {
+    "model": "hrapp.computer",
+    "pk": 6,
+    "fields": {
+      "manufacturer": "Apple",
+      "model": "2017 MacBook Pro",
+      "purchase_date": "2018-05-05",
+      "decommission_date": null
+    }
+  },
+  {
+    "model": "hrapp.computer",
+    "pk": 7,
+    "fields": {
+      "manufacturer": "Microsoft",
+      "model": "Surface Pro 6",
+      "purchase_date": "2019-06-20",
+      "decommission_date": null
+    }
   }
 ]
