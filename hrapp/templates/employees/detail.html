@@ -1,0 +1,20 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Employee: {{ employee }} </h1>
+    <p>Department: {{ computer.purchase_date }}</p>
+    <p>Assigned Computer: {{ employee.computer }}</p>
+
+    
+    {% if employee.training %}
+        <p>Training Programs: {{ computer.training }}</p>
+    {% endif %}
+
+{% endblock %}
+
+
+{% comment %} First name and last name
+Department
+Currently assigned computer
+Training programs they have attended, or plan on attending {% endcomment %}

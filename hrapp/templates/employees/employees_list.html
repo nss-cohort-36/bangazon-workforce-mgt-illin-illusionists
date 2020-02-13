@@ -5,10 +5,14 @@
 
 <ol>
 {% for employee in employees %}
-    <li>
-        <p>{{ employee }}</p>
-        Current department: {{employee.department.name}}
-    </li>
+  <a href=""> 
+  <li> <p>{{ employee }} -  Current department: {{employee.department.name}}</p></li>
+  </a>
 {% endfor %}
 </ol>
+
+{% comment %}
+ <a href="{% url 'hrapp:computer' computer.id %}">
+{% endcomment %}
+
 {% endblock content %}
