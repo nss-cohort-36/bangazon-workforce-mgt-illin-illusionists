@@ -1,8 +1,9 @@
 import sqlite3
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from hrapp.models import Employee
 from hrapp.models import Department
 from ..connection import Connection
+from django.urls import reverse
 
 def employee_list(request):
     if request.method == 'GET':
@@ -58,7 +59,7 @@ def employee_list(request):
             INSERT INTO hrapp_employee
             (first_name, last_name, start_date, is_supervisor, department_id)
             VALUES(?,?,?,?,?)
-            """, (form_data['first_name'], form_data['last_name'], form_data['start_date'], form_data['is_supervisor'], form_data['department_id']))
+            """, (form_data['first'], form_data['last'], form_data['start_date'], form_data['is_supervisor'], form_data['department']))
 
         return redirect(reverse('hrapp:employee_list'))
 
