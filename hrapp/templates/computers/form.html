@@ -1,0 +1,36 @@
+{% extends 'shared/base.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <charset = 'utf-8'>
+        <title>HRAPP</title>
+    </head>
+    <body>
+        {% block content %}
+        {% csrf_token %}
+        <form action = "{% url 'hrapp:computers' %}" method = "post">
+            <fieldset>
+                <label for = "manufacturer">Manufacturer</label>
+                <input id = "manufacturer" type = "text" name = "manufacturer" value = "{{computer.manufacturer}}" />
+            </fieldset>
+            <fieldset>
+                <label for = "model">Model</label>
+                <input id = "model" type = "text" name = "model" value = "{{computer.model}}" />
+            </fieldset>
+            <fieldset>
+                <label for = "purchase_date">Purchase Date</label>
+                <input id="purchase_date" type = "date" name="purchase_date" value = "{{computer.purchase_date}}" />
+            </fieldset>
+            {% if computer.decommission_date %}
+            <fieldset>
+                <label for ="decommission_date">Decommission Date</label>
+                <input id="purchase_date" type = "date" name="decommission_date" value = "{{computer.decommission_date}}" />
+            </fieldset>
+            {% endif %}
+        </form>
+
+        {% endblock %}
+    </body>
+</html>
