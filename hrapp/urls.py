@@ -9,7 +9,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', logout_user, name='logout'),
     path('employees/', employee_list, name='employee_list'),
-    path('departments/', department_list, name='department_list'), # TODO: update the context param and name value
+    path('departments/', department_list, name='department_list'), 
+    path('departments/<int:department_id>/', department_details, name='department_details'), 
     path('computers/', computer_list, name='computer_list'),
     path('trainingprograms/', training_program_list, name='training_list'),
     path('computers/<int:computer_id>', computer_details, name="computer"),

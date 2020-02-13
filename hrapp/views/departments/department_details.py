@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.shortcuts import render, redirect
 # from django.contrib.auth.decorators import login_required
 from hrapp.models import Department
-from libraryapp.models import model_factory
+from hrapp.models import model_factory
 from ..connection import Connection
 
 def get_department(department_id):
@@ -11,13 +11,20 @@ def get_department(department_id):
         conn.row_factory = model_factory(Department)
         db_cursor = conn.cursor()
 
+#         SELECT 
+# e.first_name,
+# e.last_name,
+# d.dept_name
+# FROM hrapp_employee e, hrapp_department d
+# WHERE e.department_id = d.id;
+
         db_cursor.execute("""
-        SELECT
-            l.id,
-            l.title,
-            l.address
-        FROM libraryapp_library l
-        WHERE l.id = ?
+        SELECT 
+            e.first_name,
+            e.last_name,
+            d.dept_name
+            FROM hrapp_employee e, hrapp_department d
+            where e.department_id = d.id;
         """, (department_id,))
 
         return db_cursor.fetchone()
