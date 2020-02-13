@@ -3,14 +3,14 @@
 {% block content %}
 <h1>Training Programs</h1>
 
-<ol>
+<ul>
 {% for program in all_programs %}
     <li>
-        <p>{{ program.title }}</p>
-        <p>{{ program.start_date }}</p>
-        <p>{{ program.end_date }}</p>
-        <p>{{ program.capacity }}</p>
+        <p><a>{{ program.title }}</a></p>
+        <p>Program Dates: {{ program.start_date }} - {{ program.end_date }}</p>
+        <p>Max Attendees: {{ program.capacity }}</p>
     </li>
 {% endfor %}
-</ol>
+</ul>
+<a href="{% url 'hrapp:training_form' %}">Add New Training Program</a>
 {% endblock content %}
