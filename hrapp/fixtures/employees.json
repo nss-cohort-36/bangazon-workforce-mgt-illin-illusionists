@@ -17,7 +17,7 @@
             "first_name": "Bill",
             "last_name": "Withers",
             "start_date": "1987-04-20",
-            "department": 2,
+            "department": 1,
             "is_supervisor": false
         }
       },
