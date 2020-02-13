@@ -10,11 +10,10 @@ def department_list(request):
             db_cursor = conn.cursor()
 
             db_cursor.execute("""
-            select
-                d.id,
-                d.dept_name,
-                d.budget
-            from hrapp_department d
+            SELECT COUNT() emp_count, dept_name, budget
+            FROM hrapp_employee e, hrapp_department d
+            ON e.department_id = d.id
+            GROUP BY e.department_id;
             """)
 
             all_departments = []
@@ -22,7 +21,7 @@ def department_list(request):
 
             for row in dataset:
                 department = Department()
-                department.id = row['id']
+                department.emp_count = row['emp_count']
                 department.dept_name = row['dept_name']
                 department.budget = row['budget']
 
