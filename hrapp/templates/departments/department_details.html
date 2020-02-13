@@ -1,12 +1,19 @@
+{% extends 'shared/base.html' %}
+
 {% load static %}
+
+
+{% block content %}
+    
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Departments</title>
-  </head>
-  <body>
-    <h1>{{ department.dept_name }}</h1>
-    <h2>Budget: {{ department.budget }}</h2>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <title>Departments</title>
+    </head>
+    <body>
+        <h1>{{ department.dept_name }}</h1>
+        <h2>Budget: {{ department.budget }}</h2>
+    </body>
 </html>
+{% endblock content %}
