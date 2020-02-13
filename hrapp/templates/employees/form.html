@@ -22,15 +22,27 @@
                 <input id = "last" type = "text" name = "last" value = "{{employee.last_name}}" />
             </fieldset>
             <fieldset>
-                <label for = "purchase_date">Purchase Date</label>
-                <input id="purchase_date" type = "date" name="purchase_date" value = "{{computer.purchase_date}}" />
+                <label for = "start_date">Start Date</label>
+                <input id="start_date" type = "date" name="start_date" value = "{{employee.start_date}}" />
             </fieldset>
-            {% if computer.id is not None %}
             <fieldset>
-                <label for ="decommission_date">Decommission Date</label>
-                <input id="purchase_date" type = "date" name="decommission_date" value = "{{computer.decommission_date}}" />
+                <label for="department">Department </label>
+                 <select id="department" type="text" name="department">
+                {% for department in all_departments %}
+                    <option value="{{department.id}}">
+                    {{department.dept_name}}
+                    </option>
+                {% endfor %}
+                </select>
             </fieldset>
-            {% endif %}
+
+            <fieldset>
+                <label for ="is_supervisor">Is Supervisor</label>
+                <input id="is_supervisor_no" type = "radio" name="is_supervisor" value = "0" />
+                <label for="is_supervisor_no">No</label>
+                <input id="is_supervisor_yes" type = "radio" name="is_supervisor" value = "1" />
+                  <label for="is_supervisor_yes">Yes</label>
+            </fieldset>
             <fieldset>
                 <input type = "submit" value="Create" />
             </fieldset>
