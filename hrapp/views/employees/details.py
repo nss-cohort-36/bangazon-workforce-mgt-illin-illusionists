@@ -1,37 +1,44 @@
 import sqlite3
 
 from django.shortcuts import render
-from hrapp.models import Computer, model_factory
+from hrapp.models import Employee, model_factory
 from .. connection import Connection
 
-#TODO: get individual computer details
-def get_employee(computer_id):
+#TODO: get individual employee details
+def get_employee(employee_id):
     with sqlite3.connect(Connection.db_path) as conn:
-        conn.row_factory = model_factory(Computer)
+        conn.row_factory = model_factory(Employee)
         db_cursor = conn.cursor()
 
         db_cursor.execute("""
-            SELECT 
-                c.id, 
-                c.purchase_date, 
-                c.decommission_date, 
-                c.manufacturer, 
+            select
+                e.id,
+                e.first_name,
+                e.last_name,
+                e.start_date,
+                e.is_supervisor,
+                d.dept_name,
+                c.manufacturer,
                 c.model
-            FROM hrapp_computer c
-            WHERE c.id = ?;
-        """, (computer_id,))
-
-        computer = db_cursor.fetchone()
-        # print(computer.manufacturer, computer.model)
-
-        return computer
+                 
+                from hrapp_employee e
+                join hrapp_department d          
+                on e.department_id = d.id
+                join hrapp_employeecomputer ec 
+                on e.id = ec.employee_id
+                join hrapp_computer c
+                on ec.computer_id = c.id
+              where e.id=?
+        """, (employee_id,))
+        employee = db_cursor.fetchone()
+        return employee
 
 #TODO: setup and render detail template
-def computer_details(request, computer_id):
+def employee_details(request, employee_id):
     if request.method == 'GET':
-        computer = get_computer(computer_id)
-        template = 'computers/detail.html'
+        employee = get_employee(employee_id)
+        template = 'employees/detail.html'
         context = {
-            'computer': computer
+            'employee': employee
         }
         return render(request, template, context)

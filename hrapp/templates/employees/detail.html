@@ -3,8 +3,8 @@
 
 {% block content %}
     <h1>Employee: {{ employee }} </h1>
-    <p>Department: {{ computer.purchase_date }}</p>
-    <p>Assigned Computer: {{ employee.computer }}</p>
+    <p>Department: {{ employee.dept_name }}</p>
+    <p>Assigned Computer: {{ employee.manufacturer }} - {{ employee.model }}</p>
 
     
     {% if employee.training %}

@@ -5,7 +5,7 @@
 
 <ol>
 {% for employee in employees %}
-  <a href=""> 
+  <a href="{% url 'hrapp:employee' employee.id %}"> 
   <li> <p>{{ employee }} -  Current department: {{employee.department.name}}</p></li>
   </a>
 {% endfor %}

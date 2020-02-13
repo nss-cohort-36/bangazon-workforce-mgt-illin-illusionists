@@ -22,7 +22,6 @@ def employee_list(request):
                 from hrapp_employee e
                 join hrapp_department d               
                 on e.department_id = d.id
-
             """)
 
             all_employees = []
