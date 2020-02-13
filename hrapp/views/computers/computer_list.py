@@ -39,3 +39,17 @@ def computer_list(request):
             context = {'all_computers': all_computers}
 
             return render(request, template, context)
+    
+    elif request.method == 'POST':
+        form_data = request.POST
+
+        with sqlite3.connect(Connection.db_path) as conn:
+            db_cursor = conn.cursor()
+
+            db_cursor.execute("""
+            INSERT INTO hrapp_computer
+            (manufacturer, model, purchase_date)
+            VALUES(?,?,?)
+            """, (form_data['manufacturer'], form_data['model'], form_data['purchase_date']))
+
+        return redirect(reverse('hrapp:computer_list'))
