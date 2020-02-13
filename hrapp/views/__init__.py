@@ -1,4 +1,5 @@
 from .employees.employee_list import employee_list
+from .employees.details import employee_details
 from .departments.department_list import department_list
 from .trainingprograms.training_program_list import training_program_list
 from .home import home
