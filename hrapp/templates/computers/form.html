@@ -9,8 +9,14 @@
     </head>
     <body>
         {% block content %}
-        {% csrf_token %}
-        <form action = "{% url 'hrapp:computers' %}" method = "post">
+
+        <h1>New Computer Details</h1>
+        {% if computer.id is not None %}
+            <form action="{% url 'hrapp:computer' computer.id %}">
+        {% else %}
+        <form action = "{% url 'hrapp:computer_list' %}" method = "post">
+        {% endif %}
+            {% csrf_token %}
             <fieldset>
                 <label for = "manufacturer">Manufacturer</label>
                 <input id = "manufacturer" type = "text" name = "manufacturer" value = "{{computer.manufacturer}}" />
@@ -23,12 +29,15 @@
                 <label for = "purchase_date">Purchase Date</label>
                 <input id="purchase_date" type = "date" name="purchase_date" value = "{{computer.purchase_date}}" />
             </fieldset>
-            {% if computer.decommission_date %}
+            {% if computer.id is not None %}
             <fieldset>
                 <label for ="decommission_date">Decommission Date</label>
                 <input id="purchase_date" type = "date" name="decommission_date" value = "{{computer.decommission_date}}" />
             </fieldset>
             {% endif %}
+            <fieldset>
+                <input type = "submit" value="Create" />
+            </fieldset>
         </form>
 
         {% endblock %}
