@@ -2,6 +2,17 @@
 {% load static %}
 
 {% block content %}
+    <dialog class="infoDialog">
+        <div class="infoDialog__message">
+        </div>
+        <form action="{% url 'hrapp:computer' computer.id %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="actual_method" value="DELETE">
+            <button id="delete--{{ computer.id }}">Yes</button>
+        </form>
+        <button class="closeDialog">Cancel</button>
+    </dialog>
+
     <h1>Computer: {{ computer.manufacturer }} {{ computer.model }}</h1>
     <p>Purchased: {{ computer.purchase_date }}</p>
     
@@ -9,12 +20,12 @@
         <p>Decommission Date: {{ computer.decommission_date }}</p>
     {% endif %}
 
-    <section id="computer-actions" style="display:flex;">
-        <form action="{% url 'hrapp:computer' computer.id %}" method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="actual_method" value="DELETE">
-            <button>Delete</button>
-        </form>
+    <section id="computer-actions" class="computer" style="display:flex;">
+        <button id="delete--{{ computer.id }}">Delete</button>
     </section>
 
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'scripts/computer.js' %}"></script>
 {% endblock %}
