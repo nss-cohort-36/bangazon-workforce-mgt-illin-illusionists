@@ -1,27 +1,42 @@
 [
     {
-      "model": "hrapp.department",
-      "pk": 1,
-      "fields": {
-        "dept_name": "Human Resources",
-        "budget": 10000
-      }
-    },
+        "model": "hrapp.department",
+        "pk": 1,
+        "fields": {
+            "dept_name": "Sales",
+            "budget": 2000000
+        }
+      },
     {
-      "model": "hrapp.department",
-      "pk": 2,
-      "fields": {
-        "dept_name": "Finance",
-        "budget": 20000
-      }
-    },
+        "model": "hrapp.department",
+        "pk": 2,
+        "fields": {
+            "dept_name": "Marketing",
+            "budget": 50000
+        }
+      },
     {
-      "model": "hrapp.department",
-      "pk": 3,
-      "fields": {
-        "dept_name": "Research and Development",
-        "budget": 30000
+        "model": "hrapp.department",
+        "pk": 3,
+        "fields": {
+            "dept_name": "Information Technology",
+            "budget": 777000
+        }
+      },
+    {
+        "model": "hrapp.department",
+        "pk": 4,
+        "fields": {
+            "dept_name": "Accounting",
+            "budget": 125000
+        }
+      },
+    {
+        "model": "hrapp.department",
+        "pk": 5,
+        "fields": {
+            "dept_name": "Human Resources",
+            "budget": 25000
+        }
       }
-    }
-  ]
-  
+]
