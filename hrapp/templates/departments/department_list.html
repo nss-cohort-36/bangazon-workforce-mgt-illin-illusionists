@@ -1,0 +1,14 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+<h1>Departments</h1>
+
+<ol>
+{% for department in departments %}
+    <li>
+        <p>{{ department.dept_name }}</p>
+        Total Budget: {{department.budget}}
+    </li>
+{% endfor %}
+</ol>
+{% endblock content %}
