@@ -8,9 +8,8 @@
   <body>
     <h1>Add Training Program</h1>
 
-
-
-    <form action="{% url('hrapp:training_list') %}" method='post'>
+    
+    <form action="{% url 'hrapp:training_list' %}" method="post">
       {% csrf_token %}
       <fieldset>
           <label for="title">Title: </label>
@@ -18,24 +17,16 @@
       </fieldset>
       <fieldset>
           <label for="start_date">Start Date: </label>
-          <input id="start_date" type="number" name="start_date">
+          <input id="start_date" type="date" name="start_date">
       </fieldset>
       <fieldset>
           <label for="end_date">End Date: </label>
-          <input id="end_date" type="number" name="end_date">
+          <input id="end_date" type="date" name="end_date">
       </fieldset>
       <fieldset>
           <label for="capacity">Capacity: </label>
           <input id="capacity" type="text" name="capacity">
       </fieldset>
-      {% comment %} <fieldset>
-          <label for="location">Library: </label>
-          <select id="location" type="text" name="location">
-                {% for library in all_libraries %}
-                    <option value="{{ library.id }}">{{ library.title }}</option>
-                {% endfor %}
-          </select>
-      </fieldset> {% endcomment %}
 
       <input type="submit" value="Add It" />
     </form>
