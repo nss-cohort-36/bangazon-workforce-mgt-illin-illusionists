@@ -7,7 +7,8 @@ from .. connection import Connection
 #TODO: get individual computer details
 def get_computer(computer_id):
     with sqlite3.connect(Connection.db_path) as conn:
-        conn.row_factory = model_factory(Computer)
+ 
+       conn.row_factory = model_factory(Computer)
         db_cursor = conn.cursor()
 
         db_cursor.execute("""
