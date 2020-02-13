@@ -1,11 +1,14 @@
 import sqlite3
+import datetime
 from django.shortcuts import render
 from hrapp.models import TrainingProgram
 from ..connection import Connection
 
+
 def training_program_list(request):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = sqlite3.Row
+        
 
         db_cursor = conn.cursor()
         db_cursor.execute(
@@ -17,6 +20,7 @@ def training_program_list(request):
             tp.end_date, 
             tp.capacity
             FROM hrapp_trainingprogram tp
+            WHERE tp.start_date > date()
             """
         )
 
