@@ -1,0 +1,41 @@
+{% extends 'shared/base.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <charset = 'utf-8'>
+        <title>HRAPP</title>
+    </head>
+    <body>
+        {% block content %}
+
+        <h1>New Employee Details</h1>
+        <form action = "{% url 'hrapp:employee_list' %}" method = "post">
+            {% csrf_token %}
+            <fieldset>
+                <label for = "first">First Name</label>
+                <input id = "first" type = "text" name = "first" value = "{{employee.first_name}}" />
+            </fieldset>
+            <fieldset>
+                <label for = "last">Last Name</label>
+                <input id = "last" type = "text" name = "last" value = "{{employee.last_name}}" />
+            </fieldset>
+            <fieldset>
+                <label for = "purchase_date">Purchase Date</label>
+                <input id="purchase_date" type = "date" name="purchase_date" value = "{{computer.purchase_date}}" />
+            </fieldset>
+            {% if computer.id is not None %}
+            <fieldset>
+                <label for ="decommission_date">Decommission Date</label>
+                <input id="purchase_date" type = "date" name="decommission_date" value = "{{computer.decommission_date}}" />
+            </fieldset>
+            {% endif %}
+            <fieldset>
+                <input type = "submit" value="Create" />
+            </fieldset>
+        </form>
+
+        {% endblock %}
+    </body>
+</html>
