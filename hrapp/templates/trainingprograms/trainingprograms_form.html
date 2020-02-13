@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bangazon</title>
+  </head>
+  <body>
+    <h1>Add Training Program</h1>
+
+    
+    <form action="{% url 'hrapp:training_list' %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+          <label for="title">Title: </label>
+          <input id="title" type="text" name="title">
+      </fieldset>
+      <fieldset>
+          <label for="start_date">Start Date: </label>
+          <input id="start_date" type="date" name="start_date">
+      </fieldset>
+      <fieldset>
+          <label for="end_date">End Date: </label>
+          <input id="end_date" type="date" name="end_date">
+      </fieldset>
+      <fieldset>
+          <label for="capacity">Capacity: </label>
+          <input id="capacity" type="text" name="capacity">
+      </fieldset>
+
+      <input type="submit" value="Add It" />
+    </form>
+  </body>
+</html>
