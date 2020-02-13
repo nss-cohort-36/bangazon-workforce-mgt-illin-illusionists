@@ -19,8 +19,9 @@ def get_employee(employee_id):
                 e.is_supervisor,
                 d.dept_name,
                 c.manufacturer,
-                c.model
-                 
+                c.model,
+                tp.title as training
+                
                 from hrapp_employee e
                 join hrapp_department d          
                 on e.department_id = d.id
@@ -28,7 +29,14 @@ def get_employee(employee_id):
                 on e.id = ec.employee_id
                 join hrapp_computer c
                 on ec.computer_id = c.id
-              where e.id=?
+                left join hrapp_trainingprogramemployee tpe
+                on e.id = tpe.employee_id
+                left join hrapp_trainingprogram tp 
+                on tpe.training_program_id = tp.id
+           
+           where e.id=?
+      
+           
         """, (employee_id,))
         employee = db_cursor.fetchone()
         return employee
