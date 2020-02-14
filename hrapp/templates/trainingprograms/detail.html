@@ -11,8 +11,8 @@
 <h3>Maximum Capacity:</h3>
 <p>{{program.capacity}}</p>
 
-<h3>Attending Employees:</h3>
 {% if program.employee_first_name %}
+    <h3>Attending Employees:</h3>
     <p>{{program.employee_first_name}} {{program.employee_last_name}}</p>
 {% endif %}
 {% endblock %}
