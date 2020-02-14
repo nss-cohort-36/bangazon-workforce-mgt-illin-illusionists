@@ -3,8 +3,9 @@
 {% block content %}
 <h1>Employees</h1>
 
-
+{% if user.is_authenticated %}
 <a href = "{% url 'hrapp:employee_form' %}">Add Employee to Bangazon</a>
+{% endif %}
 
 <ol>
 {% for employee in employees %}

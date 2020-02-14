@@ -4,6 +4,7 @@ from django.shortcuts import render
 from hrapp.models import Employee, model_factory
 from hrapp.models import TrainingProgram
 from .. connection import Connection
+from django.contrib.auth.decorators import login_required
 
 #TODO: get individual employee details
 def get_employee(employee_id):
@@ -57,6 +58,7 @@ def get_employee(employee_id):
         return employee_groups
 
 #TODO: setup and render detail template
+@login_required
 def employee_details(request, employee_id):
     if request.method == 'GET':
         employee = get_employee(employee_id)

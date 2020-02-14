@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render, reverse
 from hrapp.models import TrainingProgram
 from hrapp.models import Employee
 from ..connection import Connection
+from django.contrib.auth.decorators import login_required
 
 # SQL Helper Function that parses each row/ tuple from the SQL query results
 # Within each row, set these properties for Training Program instance and Employee instance from models 
@@ -75,6 +76,7 @@ def get_training_program(program_id):
                     tp_groups[tp.id].employees.append(employee)
         return tp_groups
 
+@login_required
 def training_details(request, program_id):
     if request.method == 'GET':
         program = get_training_program(program_id)
