@@ -30,6 +30,7 @@ def training_program_list(request):
 
             for row in dataset:
                 training_program = TrainingProgram()
+                training_program.program_id = row['id']
                 training_program.title = row['title']
                 training_program.start_date = row['start_date']
                 training_program.end_date = row['end_date']
