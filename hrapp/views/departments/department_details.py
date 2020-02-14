@@ -3,8 +3,10 @@ import sqlite3
 from django.shortcuts import render, redirect
 # from django.contrib.auth.decorators import login_required
 from hrapp.models import Department
+from hrapp.models import Employee
 from hrapp.models import model_factory
 from ..connection import Connection
+
 
 def get_department(department_id):
     with sqlite3.connect(Connection.db_path) as conn:
@@ -12,14 +14,17 @@ def get_department(department_id):
         db_cursor = conn.cursor()
 
         db_cursor.execute("""
-        SELECT 
-            e.first_name,
-            e.last_name,
-            d.dept_name,
-            d.budget
-            FROM hrapp_employee e, hrapp_department d
-            where d.id = ?;
-        """, (department_id,))
+        SELECT
+        d.id,
+        d.dept_name,
+        d.budget,
+        e.first_name,
+        e.last_name,
+        e.department_id	
+        FROM hrapp_department d
+        LEFT JOIN hrapp_employee e
+        ON e.department_id = d.id;
+        """, ( ))
 
         department = db_cursor.fetchone()
         return department
