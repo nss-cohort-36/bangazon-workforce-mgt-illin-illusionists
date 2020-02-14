@@ -1,13 +1,11 @@
 import sqlite3
-# from django.urls import reverse
 from django.shortcuts import render, redirect
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 from hrapp.models import Department
 from hrapp.models import Employee
 from hrapp.models import model_factory
 from ..connection import Connection
 from django.contrib.auth.decorators import login_required
-
 
 def get_department(department_id):
     with sqlite3.connect(Connection.db_path) as conn:
