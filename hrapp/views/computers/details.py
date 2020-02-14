@@ -3,14 +3,16 @@ import sqlite3
 from django.shortcuts import render, reverse, redirect
 from hrapp.models import Computer, model_factory
 from .. connection import Connection
+from django.contrib.auth.decorators import login_required
 
 #TODO: get individual computer details
 def get_computer(computer_id):
     with sqlite3.connect(Connection.db_path) as conn:
-        conn.row_factory = model_factory(Computer)
-        db_cursor = conn.cursor()
+ 
+       conn.row_factory = model_factory(Computer)
+       db_cursor = conn.cursor()
 
-        db_cursor.execute("""
+       db_cursor.execute("""
             SELECT 
                 c.id, 
                 c.purchase_date, 
@@ -21,10 +23,10 @@ def get_computer(computer_id):
             WHERE c.id = ?;
         """, (computer_id,))
 
-        computer = db_cursor.fetchone()
+    computer = db_cursor.fetchone()
         # print(computer.manufacturer, computer.model)
 
-        return computer
+    return computer
 
 def delete_computer(computer_id):
     with sqlite3.connect(Connection.db_path) as conn:
@@ -39,6 +41,7 @@ def delete_computer(computer_id):
         """, (computer_id,))
 
 #TODO: setup and render detail template
+@login_required
 def computer_details(request, computer_id):
     if request.method == 'GET':
         computer = get_computer(computer_id)

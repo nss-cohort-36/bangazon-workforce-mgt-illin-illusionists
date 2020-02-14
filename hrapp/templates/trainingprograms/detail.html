@@ -1,0 +1,20 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>{{ program.title }}</h1>
+<h3>Program Dates:</h3>
+<p>{{program.start_date}} - {{program.end_date}}</p>
+<h3>Description:</h3>
+<p></p>
+<h3>Maximum Capacity:</h3>
+<p>{{program.capacity}}</p>
+
+{% if has_employees %}
+    <h3>Attending Employees:</h3>
+    {% for employee in employees %}
+    <p>{{employee}}</p>
+    {% endfor %}
+{% endif %}
+{% endblock %}

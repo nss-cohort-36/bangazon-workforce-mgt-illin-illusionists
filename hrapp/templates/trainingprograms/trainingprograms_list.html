@@ -6,11 +6,13 @@
 <ul>
 {% for program in all_programs %}
     <li>
-        <p><a>{{ program.title }}</a></p>
+        <a href="{% url 'hrapp:training' program.id %}"> {{ program.title }} </a>
         <p>Program Dates: {{ program.start_date }} - {{ program.end_date }}</p>
         <p>Max Attendees: {{ program.capacity }}</p>
     </li>
 {% endfor %}
 </ul>
+{% if user.is_authenticated %}
 <a href="{% url 'hrapp:training_form' %}">Add New Training Program</a>
+{% endif %}
 {% endblock content %}
