@@ -1,24 +1,17 @@
 {% extends 'shared/base.html' %}
-
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <charset = 'utf-8'>
-        <title>HR App</title>
-    </head>
-    <body>
-    {% block content %}
-        <h1>Computers</h1>
-        <a href = "{% url 'hrapp:computer_form' %}">Add Computer to Inventory</a>
-        <ul>
-        {% for computer in all_computers %}
-            <a href="{% url 'hrapp:computer' computer.id %}"> 
-            <li>{{computer.manufacturer}} {{computer.model}}</li>   
-            </a>
 
-        {% endfor %}
-        </ul>
-    {% endblock %}
-    </body>
-</html>
+{% block content %}
+    <h1>Computers</h1>
+    {% if user.is_authenticated %}
+    <a href = "{% url 'hrapp:computer_form' %}">Add Computer to Inventory</a>
+    {% endif %}
+    <ul>
+    {% for computer in all_computers %}
+        <a href="{% url 'hrapp:computer' computer.id %}"> 
+        <li>{{computer.manufacturer}} {{computer.model}}</li>   
+        </a>
+
+    {% endfor %}
+    </ul>
+{% endblock %}

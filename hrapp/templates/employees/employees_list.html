@@ -3,12 +3,15 @@
 {% block content %}
 <h1>Employees</h1>
 
-
+{% if user.is_authenticated %}
 <a href = "{% url 'hrapp:employee_form' %}">Add Employee to Bangazon</a>
+{% endif %}
 
 <ol>
 {% for employee in employees %}
+  {% if user.is_authenticated %}
   <a href="{% url 'hrapp:employee' employee.id %}"> 
+  {% endif %}
   <li> <p>{{ employee }} -  Current department: {{employee.department.name}}</p></li>
   </a>
 {% endfor %}

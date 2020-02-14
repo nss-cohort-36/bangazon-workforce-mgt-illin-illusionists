@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from ..connection import Connection
 from hrapp.models import Computer
 
+@login_required
 def computer_form(request):
     if request.method == 'GET':
         

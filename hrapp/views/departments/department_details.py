@@ -6,6 +6,7 @@ from hrapp.models import Department
 from hrapp.models import Employee
 from hrapp.models import model_factory
 from ..connection import Connection
+from django.contrib.auth.decorators import login_required
 
 
 def get_department(department_id):
@@ -29,7 +30,7 @@ def get_department(department_id):
         department = db_cursor.fetchone()
         return department
 
-# @login_required
+@login_required
 def department_details(request, department_id):
     if request.method == 'GET':
         department = get_department(department_id)
