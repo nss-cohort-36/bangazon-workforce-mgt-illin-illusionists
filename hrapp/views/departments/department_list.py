@@ -13,9 +13,10 @@ def department_list(request):
 
             db_cursor.execute("""
             SELECT COUNT() emp_count, dept_name, budget, d.id
-            FROM hrapp_employee e, hrapp_department d
+            FROM hrapp_department d
+            LEFT JOIN hrapp_employee e
             ON e.department_id = d.id
-            GROUP BY e.department_id;
+            GROUP BY d.id;
             """)
 
             all_departments = db_cursor.fetchall()
