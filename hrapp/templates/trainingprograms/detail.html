@@ -11,10 +11,10 @@
 <h3>Maximum Capacity:</h3>
 <p>{{program.capacity}}</p>
 
-{% if program.employee.first_name %}
-    {% for employee in program.employees %}
+{% if has_employees %}
     <h3>Attending Employees:</h3>
-    <p>{{employee.first_name}} {{employee.last_name}}</p>
+    {% for employee in employees %}
+    <p>{{employee}}</p>
     {% endfor %}
 {% endif %}
 {% endblock %}
