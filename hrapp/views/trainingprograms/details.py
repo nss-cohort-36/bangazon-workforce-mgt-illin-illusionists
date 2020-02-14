@@ -3,6 +3,8 @@ from django.shortcuts import redirect, render, reverse
 from hrapp.models import TrainingProgram
 from ..connection import Connection
 
+
+
 def get_training_program(program_id):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = sqlite3.Row
@@ -14,8 +16,8 @@ def get_training_program(program_id):
         tp.start_date,
         tp.end_date,
         tp.capacity,
-        e.first_name,
-        e.last_name
+        e.first_name as employee_first_name,
+        e.last_name as employee_last_name
         FROM hrapp_trainingprogram tp
         LEFT JOIN hrapp_trainingprogramemployee tpe
         ON tp.id = tpe.training_program_id
