@@ -5,6 +5,8 @@ from hrapp.models import Department
 from ..connection import Connection
 from django.urls import reverse
 
+
+
 def employee_list(request):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:
@@ -62,4 +64,3 @@ def employee_list(request):
             """, (form_data['first'], form_data['last'], form_data['start_date'], form_data['is_supervisor'], form_data['department']))
 
         return redirect(reverse('hrapp:employee_list'))
-
