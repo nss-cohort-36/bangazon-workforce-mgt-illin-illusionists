@@ -12,8 +12,8 @@
     <form action="{% url 'hrapp:department_list'  %}" method="post">
       {% csrf_token %}
       <fieldset>
-          <label for="dept-name">Department Name: </label>
-          <input id="dept-name" type="text" name="dept-name">
+          <label for="dept_name">Department Name: </label>
+          <input id="dept_name" type="text" name="dept_name">
       </fieldset>
       <fieldset>
           <label for="budget">Budget: </label>
