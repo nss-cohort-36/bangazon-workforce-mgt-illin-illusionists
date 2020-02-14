@@ -1,6 +1,7 @@
 from .employees.employee_list import employee_list
 from .employees.details import employee_details
 from .departments.department_list import department_list
+from .departments.department_details import department_details
 from .trainingprograms.training_program_list import training_program_list
 from .trainingprograms.details import training_details
 from .trainingprograms.trainingprogram_form import training_program_form
